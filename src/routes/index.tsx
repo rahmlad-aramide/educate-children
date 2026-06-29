@@ -37,7 +37,7 @@ declare global {
   }
 }
 
-const PAYSTACK_PUBLIC_KEY = "pk_live_YOUR_PUBLIC_KEY_HERE";
+const PAYSTACK_PUBLIC_KEY = "pk_live_03864c1d92dca18c35dcb19deb12076e7e92af63";
 
 const PRESETS = [
   { label: "1 Child", sub: "₦5,000", value: "5000" },
