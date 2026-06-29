@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Sponsor an Education Kit for public primary pupils in Lugbe, Abuja. A localized community development intervention by FCT NYSC CDS.",
       },
-      { property: "og:title", content: "Educate a Child Initiative — FCT NYSC CDS" },
+      { property: "og:title", content: "Educate a Child Initiative — FCT NYSC CDS Project" },
       {
         property: "og:description",
         content:
@@ -91,6 +91,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Educate a Child Initiative — FCT NYSC CDS Project" },
+      { name: "description", content: "Child Sponsor Hub is a web application for sponsoring children and processing donations." },
+      { property: "og:description", content: "Child Sponsor Hub is a web application for sponsoring children and processing donations." },
+      { name: "twitter:description", content: "Child Sponsor Hub is a web application for sponsoring children and processing donations." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/JQIbMfbTyVZkN7hgWYCrxm8XGsI3/social-images/social-1782738424390-SEO_Image.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/JQIbMfbTyVZkN7hgWYCrxm8XGsI3/social-images/social-1782738424390-SEO_Image.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
