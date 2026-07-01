@@ -38,11 +38,22 @@ declare global {
 }
 
 const PAYSTACK_PUBLIC_KEY = "pk_live_03864c1d92dca18c35dcb19deb12076e7e92af63";
+const KIT_PRICE = 5000;
+const PUPILS_IN_FIRST_CLASS = 117; //primary 3
+const PUPILS_IN_SECOND_CLASS = 114; // primary 5
+const TOTAL_PUPILS = PUPILS_IN_FIRST_CLASS + PUPILS_IN_SECOND_CLASS;
+const ONE_CLASS_AMOUNT = KIT_PRICE * PUPILS_IN_FIRST_CLASS;
+const TWO_CLASSES_AMOUNT = KIT_PRICE * TOTAL_PUPILS;
+const FULL_PROJECT_AMOUNT = 1207000;
+const formatNaira = (amount: number) => `₦${amount.toLocaleString("en-NG")}`;
 
 const PRESETS = [
-  { label: "1 Child", sub: "₦5,000", value: "5000" },
-  { label: "4 Children", sub: "₦20,000", value: "20000" },
-  { label: "1 Class", sub: "₦200,000", value: "200000" },
+  { label: "1 Child", sub: formatNaira(KIT_PRICE), value: String(KIT_PRICE) },
+  { label: "2 Children", sub: formatNaira(KIT_PRICE * 2), value: String(KIT_PRICE * 2) },
+  { label: "4 Children", sub: formatNaira(KIT_PRICE * 4), value: String(KIT_PRICE * 4) },
+  { label: "1 Class", sub: formatNaira(ONE_CLASS_AMOUNT), value: String(ONE_CLASS_AMOUNT) },
+  { label: "2 Classes", sub: formatNaira(TWO_CLASSES_AMOUNT), value: String(TWO_CLASSES_AMOUNT) },
+  { label: "Full Project", sub: formatNaira(FULL_PROJECT_AMOUNT), value: String(FULL_PROJECT_AMOUNT) },
 ];
 
 const KIT_ITEMS = [
@@ -56,7 +67,7 @@ const KIT_ITEMS = [
 
 function DonationPage() {
   const [page, setPage] = useState<"home" | "success">("home");
-  const [formData, setFormData] = useState({ name: "", email: "", amount: "5000" });
+  const [formData, setFormData] = useState({ name: "", email: "", amount: "10000" });
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -205,6 +216,7 @@ function DonationPage() {
                   min="500"
                   value={formData.amount}
                   onChange={onChange}
+                  autoFocus={true}
                   className="w-full rounded-xl border border-border bg-secondary/40 px-4 py-2.5 text-sm font-medium focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
               </Field>
@@ -236,7 +248,7 @@ function DonationPage() {
                 type="submit"
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:opacity-95"
               >
-                Sponsor with Paystack
+                Donate {formData.amount ? formatNaira(parseInt(formData.amount, 10)) : ""} Now
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
